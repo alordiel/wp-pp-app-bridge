@@ -22,7 +22,7 @@ use Firebase\JWT\Key;
  * @return void
  */
 function pp_app_login_user(): void {
-	$is_app = isset( $_REQUEST['ppapp'] ) && ( (int) $_REQUEST['ppapp'] === 'v1' );
+	$is_app = isset( $_REQUEST['ppapp'] ) && ( $_REQUEST['ppapp'] === 'v1' );
 	$tokenExists = isset( $_REQUEST['token'] );
 	if ( $is_app && $tokenExists ) {
 		$userId = pp_get_user_id_from_token( $_REQUEST['token'] );
